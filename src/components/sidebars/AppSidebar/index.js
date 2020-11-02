@@ -1,10 +1,6 @@
-//@flow
 import React from "react";
 
-type AppSidebarProps = {
-  title: ?string,
-};
-const AppSidebar = ({ title, name }: AppSidebarProps) => {
+const AppSidebar = ({ title, name }) => {
   return <>{`Sidebar ${title} Rendered`}</>;
 };
 

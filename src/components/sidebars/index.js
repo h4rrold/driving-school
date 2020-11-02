@@ -1,3 +1,3 @@
-import { AppSidear } from "./AppSidebar";
+import { AppSidebar } from "./AppSidebar";
 
-export { AppSidear };
+export { AppSidebar };
