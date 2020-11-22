@@ -2,7 +2,7 @@ import React from "react";
 import { compose } from "recompose";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-import { getUserDataSelector } from "redux/selectors/user";
+import { getUserDataSelector } from "redux/selectors/auth";
 
 function requireAuth(Component) {
   class ProtectedRoute extends React.PureComponent {

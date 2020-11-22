@@ -1,16 +1,22 @@
-const API_BASE = "/api/";
+import buildApiUrl from "./helpers/buildApiUrl";
+
+const API_ROOT_URL = "auto-school-api.herokuapp.com";
+const API_BASE = "/api";
+const API_PROTOCOL = "https";
+
+const apiUrl = buildApiUrl(API_PROTOCOL, API_ROOT_URL, API_BASE);
 
 export default [
   {
     name: "GetUser",
-    route: `${API_BASE}/user`,
+    route: `${apiUrl}/user`,
   },
   {
     name: "PostUserLogin",
-    route: `${API_BASE}/login`,
+    route: `${apiUrl}/login`,
   },
   {
     name: "PostUserRegister",
-    route: `${API_BASE}/register`,
+    route: `${apiUrl}/register`,
   },
 ];

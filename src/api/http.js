@@ -2,6 +2,7 @@ import Axios from "axios";
 
 class Http {
   static instance = null;
+
   axiosInstance = null;
 
   static defaultOptions = {
@@ -22,7 +23,7 @@ class Http {
   }
 
   request(config) {
-    this.axiosInstance.request({
+    return this.axiosInstance.request({
       method: config.method,
       baseURL: config.baseURL,
       params: config.params,

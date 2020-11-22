@@ -1,10 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
+import { hasAsideNavigationSelector } from "redux/selectors/navigation";
+import { AppSidebar } from "components/sidebars";
+import Routes from "./Routes";
 
-import Button from "@material-ui/core/Button";
-import { Routes } from "./Routes";
-
-function App() {
-  return <Routes />;
+function App({ hasAsideNavigation }) {
+  return (
+    <>
+      {hasAsideNavigation && <AppSidebar />}
+      <Routes />
+    </>
+  );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  hasAsideNavigation: hasAsideNavigationSelector(state),
+});
+export default connect(mapStateToProps, null)(App);

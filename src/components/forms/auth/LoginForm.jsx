@@ -1,5 +1,5 @@
 import React from "react";
-
+import { connect } from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -10,6 +10,10 @@ import EmailIcon from "@material-ui/icons/Email";
 import { Form, Formik, Field } from "formik";
 import { TextField } from "formik-material-ui";
 
+import { loginUserRequestThunk } from "redux/thunks";
+import { Redirect } from "react-router";
+import { getUserTokenSelector, getAuthRedirectUrl } from "redux/selectors/auth";
+
 const useFormStyles = makeStyles((theme) => ({
   gridContainer: {
     "& > .MuiGrid-item ": {
@@ -18,10 +22,19 @@ const useFormStyles = makeStyles((theme) => ({
   },
 }));
 
-const LoginForm = () => {
+const LoginForm = ({ loginUserRequestThunk, redirectUrl }) => {
   const classes = useFormStyles();
+  if (redirectUrl) {
+    return <Redirect to={redirectUrl} />;
+  }
   return (
-    <Formik initialValues={{ email: "", password: "" }}>
+    <Formik
+      initialValues={{ email: "", password: "" }}
+      onSubmit={(values) => {
+        const { password, email } = values;
+        loginUserRequestThunk({ email, password });
+      }}
+    >
       <Form>
         <Grid container direction="column" className={classes.gridContainer}>
           <Grid item xs={12}>
@@ -68,4 +81,15 @@ const LoginForm = () => {
     </Formik>
   );
 };
-export default LoginForm;
+
+const mapStateProps = (state) => ({
+  userToken: getUserTokenSelector(state),
+  redirectUrl: getAuthRedirectUrl(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  loginUserRequestThunk: ({ email, password }) =>
+    dispatch(loginUserRequestThunk({ email, password })),
+});
+
+export default connect(mapStateProps, mapDispatchToProps)(LoginForm);

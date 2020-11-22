@@ -1,14 +1,18 @@
 import { NotFoundPage } from "pages";
 import LoginPage from "pages/auth/Login";
 import RegistrationPage from "pages/auth/Registration";
+import test from "pages/test";
 
 const routes = [
   {
     name: "cat",
     path: "/cat",
-    component: NotFoundPage,
+    component: test,
     isProtected: false,
     exact: true,
+    routeProps: {
+      hasAside: true,
+    },
   },
   {
     name: "login",

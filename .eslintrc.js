@@ -24,6 +24,14 @@ module.exports = {
     "import/extensions": 0,
     "import/no-named-as-default": 0,
     "no-empty-pattern": 0,
+    "no-debugger": 1,
+    "no-shadow": 1,
+    "consistent-return": 0,
+    "lines-between-class-members": [
+      "error",
+      "always",
+      { exceptAfterSingleLine: true },
+    ],
   },
   settings: {
     "import/resolver": {

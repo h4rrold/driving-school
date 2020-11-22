@@ -1,8 +1,9 @@
 export default {
-  user: {
+  auth: {
     user: null,
     error: null,
-    isLoading: null,
   },
   token: null,
+  isLoading: null,
+  redirectUrl: null,
 };
