@@ -109,7 +109,6 @@ const LoginForm = ({ loginUserRequestThunk, isLoading, errorMessageBE }) => {
 };
 
 const mapStateProps = (state) => ({
-  userToken: getUserTokenSelector(state),
   isLoading: getAuthIsLoadingSelector(state),
   errorMessageBE: getUserErrorSelector(state),
 });

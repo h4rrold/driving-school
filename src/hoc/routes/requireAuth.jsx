@@ -11,7 +11,7 @@ function requireAuth(Component) {
       return isAuthenticated ? (
         <Component {...this.props} />
       ) : (
-        <Redirect to="/login">Nope</Redirect>
+        <Redirect to="/login" />
       );
     }
   }

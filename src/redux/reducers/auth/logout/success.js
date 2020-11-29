@@ -1,16 +1,16 @@
 import { produce } from "immer";
-import { USER_LOGIN_SUCCESS } from "redux/actionsTypes/auth/userLogin";
+import { USER_LOGOUT_SUCCESS } from "redux/actionsTypes/auth/userLogout";
 import defaultState from "../defaultState";
 
 /* eslint-disable default-case, no-param-reassign, consistent-return, implicit-arrow-linebreak */
-export const authUserSuccessReducer = (state = defaultState, action) => {
+export const logoutUserSuccessReducer = (state = defaultState, action) => {
   return produce(state, (draft) => {
     const { type, payload } = action;
     switch (type) {
-      case USER_LOGIN_SUCCESS: {
-        draft.login.isLoading = false;
+      case USER_LOGOUT_SUCCESS: {
+        draft.logout.isLoading = false;
         draft.user = payload;
-        draft.login.error = null;
+        draft.logout.error = null;
         break;
       }
       default:

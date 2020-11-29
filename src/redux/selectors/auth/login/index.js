@@ -19,5 +19,5 @@ export const getAuthIsLoadingSelector = createSelector(
 
 export const getUserTokenSelector = createSelector(
   getAuthState,
-  (auth) => auth.token
+  (auth) => auth.user?.token ?? ""
 );
