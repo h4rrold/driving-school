@@ -4,17 +4,17 @@ const getAuthState = (state) => state.auth;
 
 export const getUserDataSelector = createSelector(
   getAuthState,
-  (auth) => auth.auth.user
+  (auth) => auth.user
 );
 
 export const getUserErrorSelector = createSelector(
   getAuthState,
-  (auth) => auth.auth.error
+  (auth) => auth.login.error
 );
 
 export const getAuthIsLoadingSelector = createSelector(
   getAuthState,
-  (auth) => auth.isLoading
+  (auth) => auth.login.isLoading
 );
 
 export const getUserTokenSelector = createSelector(

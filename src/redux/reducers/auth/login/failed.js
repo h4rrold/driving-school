@@ -8,9 +8,9 @@ export const authUserFailureReducer = (state = defaultState, action) => {
     const { type, payload } = action;
     switch (type) {
       case USER_LOGIN_FAILURE: {
-        draft.isLoading = false;
-        draft.auth.user = null;
-        draft.auth.error = payload;
+        draft.login.isLoading = false;
+        draft.user = null;
+        draft.login.error = payload;
         draft.token = null;
         break;
       }

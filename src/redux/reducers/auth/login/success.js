@@ -8,9 +8,9 @@ export const authUserSuccessReducer = (state = defaultState, action) => {
     const { type, payload } = action;
     switch (type) {
       case USER_LOGIN_SUCCESS: {
-        draft.isLoading = false;
-        draft.auth.user = payload;
-        draft.auth.error = null;
+        draft.login.isLoading = false;
+        draft.user = payload;
+        draft.login.error = null;
         draft.token = payload?.api_token;
         break;
       }

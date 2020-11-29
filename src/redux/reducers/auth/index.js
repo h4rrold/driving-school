@@ -12,7 +12,8 @@ const reducer = handleActions(
 const persistConfig = {
   key: "auth",
   storage,
-  whiteList: ["user", "token"],
+  whitelist: ["token", "user"],
+  // blackList: ["auth"]
 };
 
 export default persistReducer(persistConfig, reducer);

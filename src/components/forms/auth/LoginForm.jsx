@@ -19,7 +19,7 @@ import {
   getUserTokenSelector,
   getAuthIsLoadingSelector,
   getUserErrorSelector,
-} from "redux/selectors/auth";
+} from "redux/selectors/auth/login";
 import isEmpty from "lodash/isEmpty";
 
 const useFormStyles = makeStyles((theme) => ({

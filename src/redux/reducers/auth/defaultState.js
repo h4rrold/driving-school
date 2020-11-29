@@ -1,6 +1,7 @@
 export default {
-  auth: {
-    user: null,
+  user: null,
+  login: {
+    isLoading: false,
     error: null,
   },
   token: null,
@@ -8,5 +9,4 @@ export default {
     isLoading: false,
     error: null,
   },
-  isLoading: false,
 };
