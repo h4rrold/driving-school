@@ -5,15 +5,13 @@ import defaultState from "../defaultState";
 /* eslint-disable default-case, no-param-reassign, consistent-return, implicit-arrow-linebreak */
 export const authUserFailureReducer = (state = defaultState, action) => {
   return produce(state, (draft) => {
-    const { type } = action;
+    const { type, payload } = action;
     switch (type) {
       case USER_LOGIN_FAILURE: {
-        const error = action.payload;
         draft.isLoading = false;
         draft.auth.user = null;
-        draft.auth.error = error;
+        draft.auth.error = payload;
         draft.token = null;
-        draft.redirectUrl = null;
         break;
       }
     }

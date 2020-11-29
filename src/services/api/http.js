@@ -7,6 +7,7 @@ class Http {
 
   static defaultOptions = {
     baseUrl: "",
+    validateStatus: (status) => status === 200,
   };
 
   static getInstance() {
@@ -20,7 +21,19 @@ class Http {
     const source = Axios.CancelToken.source();
     const config = Http.defaultOptions;
     this.axiosInstance = Axios.create({ ...config, cancelToken: source.token });
+    this.initializeResponseInterceptor();
   }
+
+  initializeResponseInterceptor = () => {
+    this.axiosInstance.interceptors.response.use(
+      this.handleResponse,
+      this.handleError
+    );
+  };
+
+  handleError = (error) => Promise.reject(error.response);
+
+  handleResponse = (res) => res;
 
   request(config) {
     return this.axiosInstance.request({

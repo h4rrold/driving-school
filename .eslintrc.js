@@ -26,7 +26,9 @@ module.exports = {
     "no-empty-pattern": 0,
     "no-debugger": 1,
     "no-shadow": 1,
+    "global-require": 0,
     "consistent-return": 0,
+    "no-return-await": 0,
     "lines-between-class-members": [
       "error",
       "always",

@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import { ThemeProvider } from "@material-ui/core/styles";
 import store, { persistor } from "redux/configureStore";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { mainAppTheme } from "themes";
+import { ConnectedRouter } from "connected-react-router";
+import history from "./createHistory";
 import App from "./App";
 import "styles/main.scss";
 
@@ -17,9 +18,9 @@ ReactDOM.render(
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <ThemeProvider theme={theme}>
-          <Router>
+          <ConnectedRouter history={history}>
             <App />
-          </Router>
+          </ConnectedRouter>
         </ThemeProvider>
       </PersistGate>
     </Provider>

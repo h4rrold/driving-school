@@ -4,6 +4,9 @@ export default {
     error: null,
   },
   token: null,
-  isLoading: null,
-  redirectUrl: null,
+  register: {
+    isLoading: false,
+    error: null,
+  },
+  isLoading: false,
 };

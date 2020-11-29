@@ -35,8 +35,3 @@ export const logoutUserFailure = createAction(
   USER_LOGOUT_FAILURE,
   (payload) => payload
 );
-
-export const redirectAfterLogin = createAction(
-  "REDIRECT_AFTER_LOGIN",
-  (url) => url
-);

@@ -1,24 +1,56 @@
 import {
   loginUserRequest,
   loginUserSuccess,
-  logoutUserFailure,
-  redirectAfterLogin,
+  loginUserFailure,
 } from "redux/actionsCreators/auth/userLogin";
-import { loginRequest } from "api";
+import {
+  registerUserRequest,
+  registerUserSuccess,
+  registerUserFailure,
+} from "redux/actionsCreators/auth/userRegister";
+import { loginRequest, registerRequest } from "services/api";
+import { errorHandler } from "services/errorHandler/Handler";
+import { push } from "connected-react-router";
 
 function loginUserRequestThunk({ email, password }) {
   return async (dispatch) => {
     dispatch(loginUserRequest());
     try {
-      const userData = await loginRequest({ email, password });
-      if (userData) {
-        dispatch(loginUserSuccess(userData));
-        dispatch(redirectAfterLogin("/cat"));
+      const response = await loginRequest({ email, password });
+      if (response.status === 200) {
+        const { data } = response;
+        dispatch(loginUserSuccess(data));
+        dispatch(push("/"));
       }
-    } catch (e) {
-      dispatch(logoutUserFailure(e));
+    } catch (error) {
+      const {
+        data: { message },
+      } = error;
+      const handledMessage = errorHandler.getMessage("auth", message);
+      dispatch(loginUserFailure(handledMessage));
     }
   };
 }
 
-export { loginUserRequestThunk };
+function registerUserRequestThunk({ email, password }) {
+  return async (dispatch) => {
+    debugger;
+    dispatch(registerUserRequest());
+    try {
+      const response = await registerRequest({ email, password });
+      if (response.status === 200) {
+        const { data } = response;
+        dispatch(registerUserSuccess(data));
+        dispatch(push("/"));
+      }
+    } catch (error) {
+      const {
+        data: { message },
+      } = error;
+      const handledMessage = errorHandler.getMessage("auth", message);
+      dispatch(registerUserFailure(handledMessage));
+    }
+  };
+}
+
+export { loginUserRequestThunk, registerUserRequestThunk };

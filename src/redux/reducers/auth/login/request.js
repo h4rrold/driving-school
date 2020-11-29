@@ -9,7 +9,7 @@ export const authUserRequestReducer = (state = defaultState, action) => {
     switch (type) {
       case USER_LOGIN_REQUEST: {
         draft.isLoading = true;
-        draft.redirectUrl = null;
+        draft.auth.error = null;
         break;
       }
     }

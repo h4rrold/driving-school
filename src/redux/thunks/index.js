@@ -1,3 +1,3 @@
-import { loginUserRequestThunk } from "./auth";
+import { loginUserRequestThunk, registerUserRequestThunk } from "./auth";
 
-export { loginUserRequestThunk };
+export { loginUserRequestThunk, registerUserRequestThunk };

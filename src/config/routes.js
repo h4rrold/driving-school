@@ -8,7 +8,7 @@ const routes = [
     name: "cat",
     path: "/cat",
     component: test,
-    isProtected: false,
+    isProtected: true,
     exact: true,
     routeProps: {
       hasAside: true,
