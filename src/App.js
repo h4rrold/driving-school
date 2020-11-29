@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { hasAsideNavigationSelector } from "redux/selectors/navigation";
+import { hasAsideNavigationSelector } from "store/selectors/navigation";
 import { AppSidebar } from "components/sidebars";
 import Routes from "./Routes";
 

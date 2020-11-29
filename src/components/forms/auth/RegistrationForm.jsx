@@ -15,11 +15,11 @@ import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined"
 import { Form, Formik, Field } from "formik";
 import { TextField } from "formik-material-ui";
 
-import { registerUserRequestThunk } from "redux/thunks";
+import { registerUserRequestThunk } from "store/thunks";
 import {
   getRegisterIsLoadingSelector,
   getRegisterErrorSelector,
-} from "redux/selectors/auth/register";
+} from "store/selectors/auth/register";
 
 import isEmpty from "lodash/isEmpty";
 

@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router";
 import { requireAuth } from "hoc";
 import appRoutes from "config/routes";
 import { NotFoundPage } from "pages";
-import { renderAsideNavigation } from "redux/actionsCreators/navigation";
+import { renderAsideNavigation } from "store/actionsCreators/navigation";
 
 const AppRoute = ({ isProtected, component, renderAside, ...rest }) => {
   if (rest.routeProps && rest.routeProps.hasAside === true) {

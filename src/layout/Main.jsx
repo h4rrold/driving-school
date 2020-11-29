@@ -5,7 +5,7 @@ import clsx from "clsx";
 import {
   isExpandedSelector,
   isLockedSelector,
-} from "redux/selectors/navigation";
+} from "store/selectors/navigation";
 
 function Main({ render, isExpanded, isLocked }) {
   return (

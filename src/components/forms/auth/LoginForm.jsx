@@ -14,12 +14,12 @@ import EmailIcon from "@material-ui/icons/Email";
 import { Form, Formik, Field } from "formik";
 import { TextField } from "formik-material-ui";
 
-import { loginUserRequestThunk } from "redux/thunks";
+import { loginUserRequestThunk } from "store/thunks";
 import {
   getUserTokenSelector,
   getAuthIsLoadingSelector,
   getUserErrorSelector,
-} from "redux/selectors/auth/login";
+} from "store/selectors/auth/login";
 import isEmpty from "lodash/isEmpty";
 
 const useFormStyles = makeStyles((theme) => ({

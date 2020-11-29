@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import { ThemeProvider } from "@material-ui/core/styles";
-import store, { persistor } from "redux/configureStore";
+import store, { persistor } from "store/configureStore";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { mainAppTheme } from "themes";

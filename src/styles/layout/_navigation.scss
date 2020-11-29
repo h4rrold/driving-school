@@ -1,0 +1,107 @@
+//Style for Main Aside Navigation
+
+.aside-navigation {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    nav {
+      height: 100%;
+      width: $aside-width;
+      @include space(padding, top, $x-small);
+      position: relative;
+      background-color: $white;
+      box-shadow: $shadow;
+      will-change: width;
+      transition: width 0.25s;
+      transition-timing-function: ease;
+    }
+  }
+  .nav-bottom{
+    flex-grow: 1;
+  }
+  .pathfinder-logo {
+    width: calc(100% - #{$aside-inner-width});
+    @include space(margin, horizontal, $small);
+    @include space(margin, $small);
+    overflow: hidden;
+  }
+  .pathfinder-logo__img{
+      display: block;
+      height: 30px;
+      min-width: 30px;
+      width: 148px;
+      max-width: 148px;
+  }
+  .nav__item{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow: hidden;
+  }
+  .nav__item-link{
+    text-decoration: none;
+  }
+  
+  .nav__item-icon{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-size: 24px;
+    @include space(padding, right, $navigation-space);
+  }
+  
+  .nav-wrapper--expanded{
+    width: 240px !important;
+  }
+  
+  .nav__item-selected {
+    & .nav__item-name{
+      color: inherit;
+    }
+  }
+  
+  .nav__item-name{
+    display: flex;
+    white-space: nowrap;
+    line-height: 31px;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 16px;
+    opacity: 0;
+    &.visible{
+      opacity: 1.0;
+    }
+    @media screen and (max-width: 960px) {
+        opacity: 1;
+    }
+  }
+  
+  .nav__item-selected {
+    //color: $pathfinder-blue;
+  }
+  
+  .froze-btn{
+    position: absolute;
+    color: #212121;
+    right: 20px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    top: 20px;
+    display: none;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+    &.froze-btn--visible{
+      display: block;
+      opacity: 1;
+      &.locked {
+        @include horizontal-flip(.3s);
+      }
+    }
+    cursor: pointer;
+  }
