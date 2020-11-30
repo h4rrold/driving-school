@@ -34,10 +34,9 @@ const useFormStyles = makeStyles((theme) => ({
 const RegistrationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string().min(8, "Too short").required("Required"),
-  passwordCheck: Yup.string().oneOf(
-    [Yup.ref("password"), null],
-    "Passwords must match"
-  ),
+  passwordCheck: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords must match")
+    .required("Required"),
 });
 
 const RegistrationForm = ({
@@ -148,6 +147,7 @@ const RegistrationForm = ({
     </Formik>
   );
 };
+
 const mapStateToProps = (state) => ({
   isLoading: getRegisterIsLoadingSelector(state),
   errorMessageBE: getRegisterErrorSelector(state),
